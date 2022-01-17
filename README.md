@@ -76,7 +76,7 @@ Schemat połączeń elektrycznych w projektowanej poziomicy.
 <p align="justify">Jednostką centralną układu elektrycznego jest mikrokontroler Raspberry Pi 3B. Mikrokontroler zasilany jest z akumulatora, którego napięcie wyjściowe 11,1 V przetwarzane jest przez przetwornicę na 5 V. Przetwornica podłączona jest do mikrokontrolera przez złącze USB. Pomiędzy akumulatorem, a przetwornicą znajduje się przełącznik, zapewniający możliwość włączania i wyłączania urządzenia. Czujnik przechyłu podłączony jest poprzez interfejs I2C oraz zasilany napięciem 3,3V z mikrokontrolera. Laser zasilany jest z mikrokontrolera napięciem 5V. Wyświetlacz podłączony jest do mikrokontrolera poprzez złącze USB oraz HDMI. Złącze USB służy do zasilania wyświetlacza, natomiast HDMI do przesyłania informacji.</p>
 
 ## 8. Obudowa
-![image](budowa/1.png)
+![image](photos/1.png)
 ![image](photos/4.bmp)
 ![image](photos/5.bmp)
 
