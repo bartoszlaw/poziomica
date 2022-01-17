@@ -40,16 +40,60 @@ Celem projektu jest stworzenie przenośnej poziomicy laserowej zarządzanej bezp
 ![image](photos/4.bmp)
 ![image](photos/5.bmp)
 
-### Widok początkowy django
-Lista widoków django znajuje się w pliku `views.py`
+### Urlpatterns
+Urlspatterns to mapowanie ścieżek adresów url do odpoweidnich funkcji. Wpisanie określonego adresu url w okno przeglądarki spowoduje wywaołanie konkretnej funkcji opisanej w pliku `views.py`. Funkcje te nazywane są widokami i definiują odpowiedzi serwera www na akcję użytkownika.
 
 ```python
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.home, name ='home'),
+    path('go/', views.robPomiar, name="robPomiar"),
+    path('go/<str:pomiar_wynik>', views.wynikPomiaru, name="wynikpomiaru"),
+    path('liveview', views.liveView, name="liveview"),
+    path('liveview/update', views.liveViewUpdate, name="liveviewUpdate")
+]
+```
+Wpisanie adresu strony bez określonej ścieżki spowoduje wywołanie funkcji widoku `home`.
+
+### Widok początkowy (home)
+
+`render()` to popularny idiom do ładowania szablonu, wypełniania kontekstu i zwracania obiektu HttpResponse z wynikiem wyrenderowanego szablonu. W tym przypadku kontekstem jest przekazany do szablonu obiekt typu słownik (dictionary). Zawarte w nim dane to obiekty pobrane z modelu Pomiary, które odpowiadają rekordom w tabeli bazy danych. Obiektowe odniesienie do bazy danych jest możliwe dzięki ORM - mapowaniu obiektowo-relacyjnym. Jest to sposób odwzorowania obiektowej architektury systemu informatycznego na bazę danych. 
+```
 def home(request): #pomiary
     pomiary = Pomiary.objects.all()
     print(random_degrees())
     return render(request, 'poziomica_app/index.html', {'pomiary': pomiary})
 ```
+Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} generuje bezwzględny URL plików statycznych. Znacznik `<thead>` służy do grupowania treści nagłówka w tabeli HTML.
 
 
+```html
+{% extends 'poziomica_app/base.html' %}
 
+{% block content %}
+{% load static %}
 
+<div class="d-flex justify-content-center mt-5 ">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Wynik</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for pomiar in pomiary %}
+          <tr>
+            <td>{{pomiar.id}}</td>
+            <td>{{pomiar.nazwa}}</td>
+            <td>{{pomiar.wynik}}</td>
+            <td>{{pomiar.data}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
+```
