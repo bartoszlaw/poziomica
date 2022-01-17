@@ -19,5 +19,9 @@ from poziomica_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name = 'home'),
+    path('', views.home, name ='home'),
+    path('go/', views.robPomiar, name="robPomiar"),
+    path('go/<str:pomiar_wynik>', views.wynikPomiaru, name="wynikpomiaru"),
+    path('liveview', views.liveView, name="liveview"),
+    path('liveview/update', views.liveViewUpdate, name="liveviewUpdate")
 ]

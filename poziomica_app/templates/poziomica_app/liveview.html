@@ -1,0 +1,41 @@
+{% extends 'poziomica_app/base.html' %}
+
+{% block content %}
+{% load static %}
+<div id="" class = "d-flex justify-content-center mt-5">
+  <h1> Wartość kąta przechyłu:  </h1> 
+  <h1 id="display" class = "text-primary"> </h1>
+</div>
+<script>
+
+setTimeout(start, 500);
+
+var i = 1;
+var num = document.getElementById('display');
+
+function start() 
+{
+  setInterval(getData, 1000);
+}
+
+function change(wynik) 
+{
+    
+      num.innerText = wynik['value'];
+}
+function getData(){
+  var wynik;
+  $.getJSON('{% url 'liveviewUpdate' %}', function(json){
+    wynik = json;
+    console.log(wynik)
+    change(wynik)
+});
+}
+
+</script>
+
+
+{% endblock %}
+
+
+
