@@ -40,4 +40,16 @@ Celem projektu jest stworzenie przenośnej poziomicy laserowej zarządzanej bezp
 ![image](photos/4.bmp)
 ![image](photos/5.bmp)
 
+### Widok początkowy django
+Lista widoków django znajuje się w pliku `views.py`
+
+```python
+def home(request): #pomiary
+    pomiary = Pomiary.objects.all()
+    print(random_degrees())
+    return render(request, 'poziomica_app/index.html', {'pomiary': pomiary})
+```
+
+
+
 
