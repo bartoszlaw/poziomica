@@ -64,7 +64,7 @@ def home(request): #pomiary
     print(random_degrees())
     return render(request, 'poziomica_app/index.html', {'pomiary': pomiary})
 ```
-Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} generuje bezwzględny URL plików statycznych. Znacznik `<thead>` służy do grupowania treści nagłówka w tabeli HTML.
+Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} generuje bezwzględny URL plików statycznych. Znacznik `<thead>` służy do grupowania treści nagłówka w tabeli HTML. W pętli for loop z każdego obiektu (nazywanym pomiarem) ze słownika pomiary odczytujemy jego atrybuty.
 
 
 ```html
@@ -96,4 +96,13 @@ Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} gener
       </table>
 </div>
 {% endblock %}
+```
+Klasa pomiary dziedziczy metody i atrybuty z klasy nadzrzędnej `models`. W związku z czym staje się modelem bazy danych. Klasa Pomiary posaiada cztery atrybuty (jeden uktyty - id), które są polami w tabeli bazy danych SQLite. 
+
+```python
+from django.db import models
+class Pomiary(models.Model):
+    nazwa = models.CharField(max_length=100)
+    wynik = models.CharField(max_length=100)
+    data = models.DateTimeField(auto_now_add=True)
 ```
