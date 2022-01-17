@@ -34,20 +34,56 @@ Celem projektu jest stworzenie przenośnej poziomicy laserowej zarządzanej bezp
 * <h3>Laser</h3>
 <p align="justify">Dobrano laser krzyżowy LINELASER 50mW czerwony (650 nm) [Rys. 1]. Dobrany laser spełnia założenie dotyczące zasięgu 50 m, jednak szerokość linii krzyżyka na tej odległości będzie miała około 1 do 2 cm. Dobrany laser zasilany jest napięciem 5V DC, więc może zostać podłączony bezpośrednio do mikrokontrolera.</p>
 
+<p align="center">
+  <img src=photos/1.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 1. Laser LINELASER 50mW</p>
+
 * <h3>Akumulator</h3>
 <p align="justify">Dobrano Akumulator Li-Ion Titan 6000mAh [Rys. 2]. Posiada on napięcie wyjściowe 11.1 V co skutkuje koniecznością zastosowania przetwornicy zapewniającej napięcie na poziomie wymaganym przez wybrany mikrokontroler. Dobrany akumulator można ładować za pomocą dedykowanej do niego ładowarki Li-Pol/Li-HV/Li-Ion/Li-Fe/Ni-Cd/Ni-MH z balanserem SkyRC IMAX B6AC v2 USB z wbudowanym zasilaczem.</p>
+
+<p align="center">
+  <img src=photos/2.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 2. Akumulator Li-Ion Titan 6000mAh</p>
 
 * <h3>Czujnik przechyłu</h3>
 <p align="justify">Dobrano czujnik przechyłu IMU 10DoF [Rys. 3], jest on połączeniem 3-osiowego żyroskopu, akcelerometru i magnetometru, co zapewnia zniwelowanie zakłóceń pomiarowych. Wymaga on zasilania 3,3 do 5,5 V oraz obsługiwany jest przez interfejs I2C.</p>
 
+<p align="center">
+  <img src=photos/3.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 3. Czujnik przechyłu IMU 10DoF</p>
+
 * <h3>Przetwornica</h3>
 <p align="justify">W celu dostosowania napięcia zasilania do wymagań mikrokontrolera zastosowano przetworznicę Step-Down - 9-24V - na 5V [Rys. 4]. Posiada ona złacze USB, co ułatwia podłączenie jej do dobranego mikrokontrolera</p>
+
+<p align="center">
+  <img src=photos/4.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 4. Przetwornica USB Step-Down - 9-24V - na 5V</p>
 
 * <h3>Wyświetlacz</h3>
 <p align="justify">Dobrano 5-calowy ekran dotykowy marki Jun-Saxifragelec [Rys. 5]. Posiada on rozdzielczość 800 x 480. Jest on zasilany napięciem 5V przez przewód USB. Komunikacja z mikrokontrolerem realizowana jest przez interfejs HDMI.</p>
 
+<p align="center">
+  <img src=photos/5.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 5. 5-calowy ekran Jun-Saxifragelec</p>
+
 * <h3>Mikrokontroler</h3>
 <p align="justify">Dobrano mikrokontroler Raspberry pi 3b [Rys. 6]. Posiada on interfejsy HDMI, USB oraz i2c potrzebne do podłączenia dobranych komponentów: czujnika, przetwornicy i ekranu. Dobrany mikrokontroler wymaga zasilania 5V.</p>
+
+<p align="center">
+  <img src=photos/6.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 6. Mikrokontroler Raspberry pi 3b</p>
 
 * <h3>Przełącznik MRS-101A</h3>
 
@@ -76,9 +112,7 @@ Schemat połączeń elektrycznych w projektowanej poziomicy.
 <p align="justify">Jednostką centralną układu elektrycznego jest mikrokontroler Raspberry Pi 3B. Mikrokontroler zasilany jest z akumulatora, którego napięcie wyjściowe 11,1 V przetwarzane jest przez przetwornicę na 5 V. Przetwornica podłączona jest do mikrokontrolera przez złącze USB. Pomiędzy akumulatorem, a przetwornicą znajduje się przełącznik, zapewniający możliwość włączania i wyłączania urządzenia. Czujnik przechyłu podłączony jest poprzez interfejs I2C oraz zasilany napięciem 3,3V z mikrokontrolera. Laser zasilany jest z mikrokontrolera napięciem 5V. Wyświetlacz podłączony jest do mikrokontrolera poprzez złącze USB oraz HDMI. Złącze USB służy do zasilania wyświetlacza, natomiast HDMI do przesyłania informacji.</p>
 
 ## 8. Obudowa
-![image](photos/1.png)
-![image](photos/4.bmp)
-![image](photos/5.bmp)
+Zaprojektowano obudowę do projektowanej poziomicy laserowej [Rys. 7, 8].
 
 
 ### Urlpatterns
