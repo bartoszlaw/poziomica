@@ -356,6 +356,25 @@ function getData(){
 ```
 
 ## 9. Obsługa i wygląd strony
+
+<p align="center">
+  <img src=photos/30.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 17. Strona domowa z wyświetlonymi pomiarami</p>
+
+<p align="center">
+  <img src=photos/31.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 18. Formularz wykonywania pomiaru z opcją zapisu</p>
+
+<p align="center">
+  <img src=photos/32.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 19. Podstrona z wyświetlanym wynikiem w czasie rzeczywisytm</p>
+
 ## 10. Podsumowanie
 
 <p align="justify">Wykonano projekt  poziomicy laserowej z cyfrowym odczytem kąta pochylenia</p>
