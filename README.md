@@ -244,3 +244,14 @@ class Pomiary(models.Model):
     wynik = models.CharField(max_length=100)
     data = models.DateTimeField(auto_now_add=True)
 ```
+
+## 9. Obsługa i wygląd strony
+## 10. Podsumowanie
+
+<p align="justify">Wykonano projekt  poziomicy laserowej z cyfrowym odczytem kąta pochylenia</p>
+
+Zaprojektowana poziomica posiada możliwość:
+* montażu na statywie
+* zapisu dowolnej ilości pomiarów
+* wyświetlania aktualnej wartości kąta względnego i bezwzględnego łącznia się z serwerem
+* obsługi za pomocą urządzenia mobilnego poprzez stronę internetową
