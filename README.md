@@ -179,8 +179,9 @@ Wykonano rysunki wykonawcze zaprojektowanych elementów obudowy [Rys. 14, 15, 16
 <p align="center">Rysunek 16. Rysunek wykonawczy korpusu głównego obudowy</p>
 
 ### Urlpatterns
-Urlspatterns to mapowanie ścieżek adresów url do odpoweidnich funkcji. Wpisanie określonego adresu url w okno przeglądarki spowoduje wywaołanie konkretnej funkcji opisanej w pliku `views.py`. Funkcje te nazywane są widokami i definiują odpowiedzi serwera www na akcję użytkownika.
 
+
+Urlspatterns to mapowanie ścieżek adresów url do odpoweidnich funkcji. Wpisanie określonego adresu url w okno przeglądarki spowoduje wywaołanie konkretnej funkcji opisanej w pliku `views.py`. Funkcje te nazywane są widokami i definiują odpowiedzi serwera www na akcję użytkownika.
 ```python
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -195,15 +196,17 @@ Wpisanie adresu strony bez określonej ścieżki spowoduje wywołanie funkcji wi
 
 ### Widok początkowy (home)
 
-`render()` to popularny idiom do ładowania szablonu, wypełniania kontekstu i zwracania obiektu HttpResponse z wynikiem wyrenderowanego szablonu. W tym przypadku kontekstem jest przekazany do szablonu obiekt typu słownik (dictionary). Zawarte w nim dane to obiekty pobrane z modelu Pomiary, które odpowiadają rekordom w tabeli bazy danych. Obiektowe odniesienie do bazy danych jest możliwe dzięki ORM - mapowaniu obiektowo-relacyjnym. Jest to sposób odwzorowania obiektowej architektury systemu informatycznego na bazę danych. 
-```
+`render()` to popularny idiom do ładowania szablonu, wypełniania kontekstu i zwracania obiektu HttpResponse z wynikiem wyrenderowanego szablonu. W tym przypadku kontekstem jest przekazany do szablonu obiekt typu słownik (dictionary). Zawarte w nim dane to obiekty pobrane z modelu Pomiary, które odpowiadają rekordom w tabeli bazy danych. Obiektowe odniesienie do bazy danych jest możliwe dzięki ORM - mapowaniu obiektowo-relacyjnym. Jest to sposób odwzorowania obiektowej architektury systemu informatycznego na bazę danych.
+
+```python
 def home(request): #pomiary
     pomiary = Pomiary.objects.all()
     print(random_degrees())
     return render(request, 'poziomica_app/index.html', {'pomiary': pomiary})
 ```
-Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} generuje bezwzględny URL plików statycznych. Znacznik `<thead>` służy do grupowania treści nagłówka w tabeli HTML. W pętli for loop z każdego obiektu (nazywanym pomiarem) ze słownika pomiary odczytujemy jego atrybuty.
 
+
+Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} generuje bezwzględny URL plików statycznych. Znacznik `<thead>` służy do grupowania treści nagłówka w tabeli HTML. W pętli for loop z każdego obiektu (nazywanym pomiarem) ze słownika pomiary odczytujemy jego atrybuty.
 
 ```html
 {% extends 'poziomica_app/base.html' %}
@@ -235,7 +238,8 @@ Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} gener
 </div>
 {% endblock %}
 ```
-Klasa pomiary dziedziczy metody i atrybuty z klasy nadzrzędnej `models`. W związku z czym staje się modelem bazy danych. Klasa Pomiary posaiada cztery atrybuty (jeden uktyty - id), które są polami w tabeli bazy danych SQLite. 
+
+>Klasa pomiary dziedziczy metody i atrybuty z klasy nadzrzędnej `models`. W związku z czym staje się modelem bazy danych. Klasa Pomiary posaiada cztery atrybuty (jeden uktyty - id), które są polami w tabeli bazy danych SQLite.
 
 ```python
 from django.db import models
