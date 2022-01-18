@@ -239,7 +239,7 @@ Wygląd wyrenderowanego szablonu `index.html`. Szablonowy tag {% static %} gener
 {% endblock %}
 ```
 
->Klasa pomiary dziedziczy metody i atrybuty z klasy nadzrzędnej `models`. W związku z czym staje się modelem bazy danych. Klasa Pomiary posaiada cztery atrybuty (jeden uktyty - id), które są polami w tabeli bazy danych SQLite.
+Klasa pomiary dziedziczy metody i atrybuty z klasy nadzrzędnej `models`. W związku z czym staje się modelem bazy danych. Klasa Pomiary posaiada cztery atrybuty (jeden uktyty - id), które są polami w tabeli bazy danych SQLite.
 
 ```python
 from django.db import models
