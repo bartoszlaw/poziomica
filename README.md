@@ -248,17 +248,8 @@ class Pomiary(models.Model):
     wynik = models.CharField(max_length=100)
     data = models.DateTimeField(auto_now_add=True)
 ```
-
-```python
-import string
-import random
-def generate_id (size = 8, chars=string.ascii_lowercase + string.digits):
-    return ''.join(random.choice(chars) for _ in range(size))
-
-def random_degrees (from_ = 68.00, to_ = 74.50):
-    return round(random.uniform(from_, to_), 2)
-```
-
+## Funkcja widoku obsługująca wykonanie pomiaru  
+Pomiar wykonuje się poprzez podanie nazwy pomiaru i wywołanie akcji przyciskiem typu submit. Nazwa pomiaru pobierana jest z formularza metodą POST, a pomiar generowany jest za pomocą funkcji przykładowej `random_degrees`. Jeśli użytkownik zaznaczy pole typu `checkbox` o nazwie `tak` pomiar zapisywany jest do bazy danych, jeśli nie to pomiar jest kodowany za pomocą funkcji `generate_id` i przekazywany za pomocą metody GET do kolejnego widoku.  
 
 ```python
 def robPomiar(request):
@@ -286,6 +277,64 @@ def robPomiar(request):
 
         else:
             return render(request, 'poziomica_app/zrob_pomiar.html')
+```
+W przypadku zaznaczenia opcji "zapisz" dane zapisywane są do modelu bazy danych z wykorzystaniem narzędzia django forms. Następnie kodowane i przekazywane do kolejnego widoku. 
+Django forms reprezentują strukturę modeli baz danych. 
+
+## Kodowanie pomiaru
+Prosta i przykładowa funkcja kodowania wyników przekazywanych metodą GET. Polega na dodaniu określlonej ilości znaków (kodowanie ASCII) oraz cyfr.  
+```python
+def generate_id (size = 8, chars=string.ascii_lowercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+```
+## Przykładowa funkcja generowania pomiaru
+Na potrzeby testowe bez wykorzystania czujnika funckja zwraca losowe wartości z wybranego przedziału. 
+
+```python
+def random_degrees (from_ = 68.00, to_ = 74.50):
+    return round(random.uniform(from_, to_), 2)
+```
+
+## Widok liveview
+Funkcja widoku odpowiedzialna za wyświetlanie liveview. Funkcje pobierania pomiarów napisane zostały w języku JavaScript.
+```python
+def liveView(request):
+    if request.method == 'GET':
+        return render(request, 'poziomica_app/liveview.html')
+```    
+## Funkcja pobierania pomiarów
+Dane pomiarowe liveview pobierane są z serwera za pomocą protokołu internetowego AJAX. Służy on do komunikacji z serwerem bez potrzeby przeładowania stron www. AJAX za pomocą metody GET pobierara dane z adresu 'liveview/update' do którego jest przypisana funkcja na serwerze django. Funkcja ta zwraca odpowiedź typu JsonResponse. AJAX pobiera dane co 0,5s i wyświetla dane na stronie HTML.  
+
+```javascript
+<div id="" class = "d-flex justify-content-center mt-5">
+  <h1> Wartość kąta przechyłu:  </h1> 
+  <h1 id="display" class = "text-primary"> </h1>
+</div>
+<script>
+
+setTimeout(start, 500);
+
+var i = 1;
+var num = document.getElementById('display');
+
+function start() 
+{
+  setInterval(getData, 1000);
+}
+
+function change(wynik) 
+{
+    
+      num.innerText = wynik['value'];
+}
+function getData(){
+  var wynik;
+  $.getJSON('{% url 'liveviewUpdate' %}', function(json){
+    wynik = json;
+    console.log(wynik)
+    change(wynik)
+});
+}
 ```
 
 ## 9. Obsługa i wygląd strony
