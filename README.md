@@ -260,6 +260,34 @@ def random_degrees (from_ = 68.00, to_ = 74.50):
 ```
 
 
+```python
+def robPomiar(request):
+    if request.method == 'GET':
+        return render(request, 'poziomica_app/zrob_pomiar.html')
+    else:
+        if request.POST.get('wyslij'):
+            nazwa = request.POST['nazwa']
+            pomiar = str(random_degrees())
+            if request.POST.get('zapisz') == "tak":
+                try:
+                    form = PomiaryForm()
+                    nowy_pomiar = form.save(commit=False)
+                    nowy_pomiar.nazwa = nazwa
+                    nowy_pomiar.wynik = pomiar
+                    nowy_pomiar.save()
+                    messages.info(request, "zapisano")
+                    koduj_wynik = generate_id(4) + pomiar
+                    return redirect('wynikpomiaru', pomiar_wynik = koduj_wynik)
+                except:
+                    return render(request, 'poziomica_app/zrob_pomiar.html', {'error':'Coś poszło źle'})
+            else:
+                koduj_wynik = generate_id(4) + pomiar
+                return redirect('wynikpomiaru', pomiar_wynik = koduj_wynik)
+
+        else:
+            return render(request, 'poziomica_app/zrob_pomiar.html')
+```
+
 ## 9. Obsługa i wygląd strony
 ## 10. Podsumowanie
 
