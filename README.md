@@ -101,7 +101,7 @@ Celem projektu jest stworzenie przenośnej poziomicy laserowej zarządzanej bezp
 * Urządzenia mobilne łączą się z punktem dostępu za pomocą modułu **Wi-Fi**. 
 
 ## 6. Schemat połączenia elementów 
-![image](photos/2.jpg "Schemat połączeń elektrycznych w projektowanej poziomicy.")
+
 
 ## 7. Schemat układu 
 
@@ -113,6 +113,67 @@ Schemat połączeń elektrycznych w projektowanej poziomicy.
 
 ## 8. Obudowa
 Zaprojektowano obudowę do projektowanej poziomicy laserowej [Rys. 7, 8].
+
+<p align="center">
+  <img src=photos/7.png alt="Sublime's custom image"/> <img src=photos/8.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 7. Złożona obudowa poziomicy laserowej</p>
+
+<p align="justify">Obudowa wykonywana jest metodą druku 3D z nylonu z włóknem węglowym. Dodatek włókna węglowego do nylonowego filamentu zapewnia dużą sztywność, wytrzymałość i odporność na ciepło oraz dobrą przyczepność warstw podczas druku. Obudowa składa się ona z trzech oddzielnych elementów łączonych śrubami [Rys. 8]. Elementami tymi są korpus główny, element mocowania lasera, klapka. Całkowita masa zaprojektowanej obudowy wynosi około 389 g.</p>
+
+<p align="center">
+  <img src=photos/9.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 8. Rozłożona obudowa: 1 - korpus główny, 2 - element mocujący laser, 3 - klapka.</p>
+
+<p align="justify">W korpusie głównym obudowy zamocowane są wszystkie elementy składowe poziomicy [Rys. 9, 10]. W miejscu 1 zamocowany zostanie laser. Mocowanie lasera dokonywane jest poprzez dociśnięcie go przez element mocujący (element 2) do korpusu. Docisk dokonywany jest poprzez skręcenie elementu mocującego do korpusu za pomocą zestawu czterech śrub M8 i nakrętek. W miejscu 2 zamocowany zostanie wyświetlacz za pomocą czterech śrub M2,5. W miejscu 3, na podwyższeniu, metodą klejenia zostanie zamocowany czujnik przechyłu. Specjalnie przygotowane podwyższenie sprawia, że czujnik częściowo się na nim opiera. W miejscu 4 umieszczony zostanie akumulator, będzie się on opierał na dwóch pułkach. Po bokach jego ruch będzie ograniczony przez ścianki. Od góry będzie zabezpieczony przed przemieszczeniem poprzez dokręconą do korpusu klapkę. W miejscu 5 umieszczony zostanie mikrokontroler poprzez przykręcenie go do korpusu za pomocą czterech śrub M2,5. W miejscu 6 zamocowany zostanie przycisk włączający i wyłączający urządzenie. Przycisk mocowany jest wciskowo, po wciśnięciu w otwór montażowy zostaje on zablokowany.</p>
+
+<p align="center">
+  <img src=photos/10.png alt="Sublime's custom image"/> <img src=photos/11.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 9. Korpus główny poziomicy.</p>
+
+<p align="justify">Element mocujący laser (element 2) posiada specjalnie wyprofilowany kształt umożliwiający dociśniecie lasera do korpusu i zamocowanie go [Rys. 10].</p>
+
+<p align="center">
+  <img src=photos/12.png alt="Sublime's custom image"/>
+</p>
+
+<p align="center">Rysunek 10. Element mocujący laser</p>
+
+<p align="justify">Klapka (element 3) służy do zamknięcia całej kontrukcji, oraz jest elementem umożliwiajacym zamocowanie urządzenia do statywu. Klapka montowana jest do korpusu za pomocą czterech srub M5. Na środku klapki znajduje się podwyzszenie w którym wykonany jest otwór gwintowany M8, umożliwiajacy zamocowanie urządzenia do statywu [Rys. 11].</p>
+
+<p align="center">
+<img src=photos/13.png alt="Sublime's custom image"/> <img src=photos/14.png alt="Sublime's custom image"/>
+</p>
+  
+<p align="center">Rysunek 11. Klapa obudowy- przód i tył</p>
+
+Wykonano rysunki wykonawcze zaprojektowanych elementów obudowy [Rys. 12, 13, 14]. 
+
+<p align="center">
+<img src=photos/15.jpg alt="Sublime's custom image"/>
+</p>
+  
+<p align="center">Rysunek 12. Rysunek wykonawczy klapki obudowy</p>
+
+<p align="center">
+<img src=photos/16.jpg alt="Sublime's custom image"/>
+</p>
+  
+<p align="center">Rysunek 13. Rysunek wykonawczy elementu mocującego laser</p>
+
+<p align="center">
+<img src=photos/17.jpg alt="Sublime's custom image"/>
+</p>
+  
+<p align="center">Rysunek 14. Rysunek wykonawczy korpusu głównego obudowy</p>
+
+
+
 
 
 ### Urlpatterns
