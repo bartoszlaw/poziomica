@@ -355,6 +355,7 @@ function getData(){
 }
 ```
 
+## Komunikacja I2C
 ```python
 # pip3 install smbus2 in terminal
 from smbus2 import SMBus
